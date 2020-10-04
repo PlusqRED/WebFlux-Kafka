@@ -29,6 +29,7 @@ public class KafkaConfiguration {
                 JsonDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
                 JsonDeserializer.class);
+        props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
         return props;
     }
 
