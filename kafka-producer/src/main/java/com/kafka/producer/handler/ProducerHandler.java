@@ -1,6 +1,5 @@
 package com.kafka.producer.handler;
 
-import com.kafka.producer.model.News;
 import com.kafka.producer.producer.ProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -15,10 +14,10 @@ public class ProducerHandler {
     private final ProducerService producerService;
 
     public Mono<ServerResponse> startProducing(ServerRequest serverRequest) {
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_STREAM_JSON).body(producerService.startProducing(), News.class);
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_STREAM_JSON).body(producerService.startProducing(), String.class);
     }
 
     public Mono<ServerResponse> stopProducing(ServerRequest serverRequest) {
-        return ServerResponse.ok().body(producerService.stopProducing(), News.class);
+        return ServerResponse.ok().body(producerService.stopProducing(), String.class);
     }
 }
